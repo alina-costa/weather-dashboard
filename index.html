@@ -28,17 +28,63 @@
             Search
           </button>
         </form>
-        <div class="card hide" id="weather-card" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">City Name</h5>
-            <h6 class="card-subtitle mb-2 text-muted">current date</h6>
-            <p class="card-text">
-              <p id="temp">Temp: <span id="temp-value"></span></p>
-              <p id="wind">Wind: <span id="wind-value"></span></p>
-              <p id="humid">Humidity: <span id="humid-value"></span></p>
-              <p id="uv-index">UV Index: <span id="uv-value"></span></p>
-            </p>
-          </div>
+        <div class="container">
+            <div class="card row hide" id="weather-card">
+                <div class="col">
+                    <div class="card-body">
+                        <h5 class="card-title">City Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">current date</h6>
+                        <p class="card-text">
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                        <p id="uv-index">UV Index: <span id="uv-value"></span></p>
+                        </p>
+                    </div>
+                </div>    
+            </div>
+            <div class="row hide" id="future-forecast">
+                <div class="card col-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">00/00/0000</h5>
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                    </div>
+                </div>    
+                <div class="card col-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">00/00/0000</h5>
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                    </div>
+                </div>    
+                <div class="card col-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">00/00/0000</h5>
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                    </div>
+                </div> 
+                <div class="card col-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">00/00/0000</h5>
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                    </div>
+                </div>   
+                <div class="card col-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">00/00/0000</h5>
+                        <p id="temp">Temp: <span id="temp-value"></span></p>
+                        <p id="wind">Wind: <span id="wind-value"></span></p>
+                        <p id="humid">Humidity: <span id="humid-value"></span></p>
+                    </div>
+                </div>    
+            </div>
         </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

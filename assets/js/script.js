@@ -3,11 +3,12 @@
 
 var searchButtonEl = document.getElementById("search-btn");
 var weatherCardEl = document.getElementById("weather-card");
+var futureCardsEl = document.getElementById("future-forecast");
 
 function weatherCard(event) {
   event.preventDefault();
   weatherCardEl.classList.remove("hide");
-  console.log("weather card");
+  futureCardsEl.classList.remove("hide");
 }
 
 searchButtonEl.addEventListener("click", weatherCard);
