@@ -1,4 +1,5 @@
 // API CALL https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+// 5 days https://api.openweathermap.org/data/2.5/weather?q={city name}&cnt=5&appid={API key}
 // API KEY 6ecb740b9cbedf922390430f98d58d81
 
 var searchButtonEl = document.getElementById("search-btn");
@@ -14,6 +15,9 @@ var card3 = document.getElementById("card-3");
 var card4 = document.getElementById("card-4");
 var card5 = document.getElementById("card-5");
 
+// use moment together with open weather to retrieve the weather for current date and next 5 days
+
+// use API to get city name and replace cityNameEl text with
 function weatherCard(event) {
   event.preventDefault();
   weatherCardEl.classList.remove("hide");
@@ -24,25 +28,18 @@ function weatherCard(event) {
   $(cityNameEl).text(
     $(cityNameEl).text().replace("City Name", inputValue.value)
   );
-  $(card1).text(
-    $(card1).text().replace("00/00/0000", moment().add(1, "days").format("L"))
-  );
-  $(card2).text(
-    $(card2).text().replace("00/00/0000", moment().add(2, "days").format("L"))
-  );
-  $(card3).text(
-    $(card3).text().replace("00/00/0000", moment().add(3, "days").format("L"))
-  );
-  $(card4).text(
-    $(card4).text().replace("00/00/0000", moment().add(4, "days").format("L"))
-  );
-  $(card5).text(
-    $(card5).text().replace("00/00/0000", moment().add(5, "days").format("L"))
-  );
+  fetchData();
 }
 
 searchButtonEl.addEventListener("click", weatherCard);
 
-// fetch(
-//   "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}"
-// );
+function fetchData(city) {
+  var city = inputValue.value;
+  fetch(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=6ecb740b9cbedf922390430f98d58d81"
+  )
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
