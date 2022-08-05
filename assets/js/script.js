@@ -12,14 +12,22 @@ var cityNameEl = document.getElementById("city-name");
 var todaysDateEl = document.getElementById("current-date");
 var momentDateToday = moment().format("L");
 
-// use moment together with open weather to retrieve the weather for current date and next 5 days
-// use moment or openweather to display dates?
-// use API to get city name and replace cityNameEl text with
 function weatherCard(event) {
   event.preventDefault();
   weatherCardEl.classList.remove("hide");
   futureCardsEl.classList.remove("hide");
   todaysDateEl.textContent = momentDateToday;
+
+  var card1 = document.getElementById("card-1");
+  card1.textContent = moment().add(1, "days").format("L");
+  var card2 = document.getElementById("card-2");
+  card2.textContent = moment().add(2, "days").format("L");
+  var card3 = document.getElementById("card-3");
+  card3.textContent = moment().add(3, "days").format("L");
+  var card4 = document.getElementById("card-4");
+  card4.textContent = moment().add(4, "days").format("L");
+  var card5 = document.getElementById("card-5");
+  card5.textContent = moment().add(5, "days").format("L");
   fetchData();
 }
 
@@ -47,18 +55,28 @@ function displayWeather(data) {
   cardWindEl.textContent += speed + " km/h";
   var cardHumidEl = document.getElementById("humid");
   cardHumidEl.textContent += humidity + "%";
+  //   var uvEl = document.getElementById("uv-index");
+  //   uvEl.textContent += uvIndex;
   var { lat, lon } = data.coord;
-  //   console.log(lat, lon);
+  futureForecast(lat, lon);
+}
 
+var futureForecast = function (lat, lon) {
   fetch(
-    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       lat +
       "&lon=" +
       lon +
-      "&appid=6ecb740b9cbedf922390430f98d58d81"
-  )
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-}
+      "&units=metric&cnt=5&exclude=hourly,minutely&appid=6ecb740b9cbedf922390430f98d58d81"
+  ).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data2) {
+        console.log(data2);
+        var temp1 = data2.daily[0].temp.day;
+        console.log(temp1);
+      });
+    }
+  });
+};
 
 searchButtonEl.addEventListener("click", weatherCard);
