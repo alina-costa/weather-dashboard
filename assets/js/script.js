@@ -47,7 +47,6 @@ function displayWeather(data) {
   var { name } = data;
   var { humidity, temp } = data.main;
   var { speed } = data.wind;
-  var { uvIndex } = data.main;
   cityNameEl.textContent = name;
   var cardTempEl = document.getElementById("temp");
   cardTempEl.textContent += temp + " C";
@@ -72,8 +71,74 @@ var futureForecast = function (lat, lon) {
     if (response.ok) {
       response.json().then(function (data2) {
         console.log(data2);
+
         var temp1 = data2.daily[0].temp.day;
-        console.log(temp1);
+        var temp1El = document.getElementById("temp1");
+        temp1El.textContent += temp1 + " C";
+
+        var wind1 = data2.daily[0].wind_speed;
+        var wind1El = document.getElementById("wind1");
+        wind1El.textContent += wind1 + " km/h";
+
+        var humid1 = data2.daily[0].humidity;
+        var humid1El = document.getElementById("humid1");
+        humid1El.textContent += humid1 + " %";
+        //
+        var temp2 = data2.daily[1].temp.day;
+        var temp2El = document.getElementById("temp2");
+        temp2El.textContent += temp2 + " C";
+
+        var wind2 = data2.daily[1].wind_speed;
+        var wind2El = document.getElementById("wind2");
+        wind2El.textContent += wind2 + " km/h";
+
+        var humid2 = data2.daily[1].humidity;
+        var humid2El = document.getElementById("humid2");
+        humid2El.textContent += humid2 + " %";
+
+        //
+        var temp3 = data2.daily[2].temp.day;
+        var temp3El = document.getElementById("temp3");
+        temp3El.textContent += temp3 + " C";
+
+        var wind3 = data2.daily[2].wind_speed;
+        var wind3El = document.getElementById("wind3");
+        wind3El.textContent += wind3 + " km/h";
+
+        var humid3 = data2.daily[2].humidity;
+        var humid3El = document.getElementById("humid3");
+        humid3El.textContent += humid3 + " %";
+
+        //
+        var temp4 = data2.daily[3].temp.day;
+        var temp4El = document.getElementById("temp4");
+        temp4El.textContent += temp4 + " C";
+
+        var wind4 = data2.daily[3].wind_speed;
+        var wind4El = document.getElementById("wind4");
+        wind4El.textContent += wind4 + " km/h";
+
+        var humid4 = data2.daily[3].humidity;
+        var humid4El = document.getElementById("humid4");
+        humid4El.textContent += humid4 + " %";
+
+        //
+        var temp5 = data2.daily[4].temp.day;
+        var temp5El = document.getElementById("temp5");
+        temp5El.textContent += temp5 + " C";
+
+        var wind5 = data2.daily[4].wind_speed;
+        var wind5El = document.getElementById("wind5");
+        wind5El.textContent += wind5 + " km/h";
+
+        var humid5 = data2.daily[4].humidity;
+        var humid5El = document.getElementById("humid5");
+        humid5El.textContent += humid5 + " %";
+
+        // UV for main card
+        var uviMain = data2.current.uvi;
+        var uviEl = document.getElementById("uv-index");
+        uviEl.textContent += uviMain;
       });
     }
   });
