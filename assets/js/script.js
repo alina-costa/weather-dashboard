@@ -54,8 +54,6 @@ function displayWeather(data) {
   cardWindEl.textContent += speed + " km/h";
   var cardHumidEl = document.getElementById("humid");
   cardHumidEl.textContent += humidity + "%";
-  //   var uvEl = document.getElementById("uv-index");
-  //   uvEl.textContent += uvIndex;
   var { lat, lon } = data.coord;
   futureForecast(lat, lon);
 }
