@@ -12,6 +12,8 @@ var cityNameEl = document.getElementById("city-name");
 var todaysDateEl = document.getElementById("current-date");
 var momentDateToday = moment().format("L");
 var searchHistoryArray = [];
+var searchHistoryEl = document.getElementById("search-history");
+var historyButtonEl = document.getElementById("history-btn");
 
 function weatherCard(event) {
   event.preventDefault();
@@ -40,10 +42,11 @@ function fetchData(city) {
       "&units=metric&appid=6ecb740b9cbedf922390430f98d58d81"
   )
     .then((response) => response.json())
-    .then((data) => displayWeather(data));
+    .then((data) => this.displayWeather(data));
 }
 
 // come back for icon
+// array items
 function displayWeather(data) {
   var { name } = data;
   var { humidity, temp } = data.main;
@@ -58,6 +61,11 @@ function displayWeather(data) {
   cardHumidEl.textContent = humidity + "%";
   var { lat, lon } = data.coord;
   futureForecast(lat, lon);
+  // {
+  //   var city = name;
+  // }
+  // searchHistoryArray.push(city);
+  save();
 }
 
 var futureForecast = function (lat, lon) {
@@ -70,8 +78,6 @@ var futureForecast = function (lat, lon) {
   ).then(function (response) {
     if (response.ok) {
       response.json().then(function (data2) {
-        console.log(data2);
-
         var temp1 = data2.daily[0].temp.day;
         var temp1El = document.getElementById("temp1");
         temp1El.textContent = temp1 + " C";
@@ -150,5 +156,25 @@ var futureForecast = function (lat, lon) {
 // };
 
 searchButtonEl.addEventListener("click", weatherCard);
+// console.log(searchHistoryArray);
 
-// city name changes with new search, why not other info?
+// view history, click on a city, run the search like normal
+
+// for (var i = 0; i < searchHistoryArray.length; i++) {
+//   var testing = localStorage.getItem("data");
+//   console.log(testing);
+// }
+
+function save() {
+  var newData = inputValue.value;
+  if (localStorage.getItem("data") = null) {
+    localStorage.setItem("data", "[]");
+  }
+
+  var oldData = JSON.parse(localStorage.getItem("data"));
+  oldData.push(newData);
+
+  localStorage.setItem("data", JSON.stringify(oldData));
+};
+
+
