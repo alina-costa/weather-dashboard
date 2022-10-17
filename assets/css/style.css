@@ -38,3 +38,7 @@ body {
   align-items: center;
   margin: auto;
 }
+
+.card-body p {
+  line-height: 12px;
+}
