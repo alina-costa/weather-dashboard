@@ -4,4 +4,37 @@
 
 header {
   text-align: center;
+  position: fixed;
+  top: 2rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 6rem;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Open Sans";
+  font-size: 18px;
+}
+
+.card {
+  border-style: solid;
+  border-radius: 22px;
+}
+
+#weather-card {
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }

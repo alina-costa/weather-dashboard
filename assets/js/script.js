@@ -1,8 +1,4 @@
-// API CALL https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-// 5 days https://api.openweathermap.org/data/2.5/weather?q={city name}&cnt=5&appid={API key}
-// API KEY 6ecb740b9cbedf922390430f98d58d81
-// http://api.openweathermap.org/geo/1.0/direct?q=" + city+ "&limit=5&units=metric&appid=6ecb740b9cbedf922390430f98d58d81
-// api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+// create a history button with recent searches using localstoarge
 
 var searchButtonEl = document.getElementById("search-btn");
 var weatherCardEl = document.getElementById("weather-card");
@@ -56,9 +52,9 @@ function displayWeather(data) {
   var cardTempEl = document.getElementById("temp");
   cardTempEl.textContent = temp + " C";
   var cardWindEl = document.getElementById("wind");
-  cardWindEl.textContent = speed + " km/h";
+  cardWindEl.textContent = "Wind: " + speed + " km/h";
   var cardHumidEl = document.getElementById("humid");
-  cardHumidEl.textContent = humidity + "%";
+  cardHumidEl.textContent = "Humidity: " + humidity + "%";
   var { lat, lon } = data.coord;
   futureForecast(lat, lon);
   // {
@@ -144,7 +140,7 @@ var futureForecast = function (lat, lon) {
         // UV for main card
         var uviMain = data2.current.uvi;
         var uviEl = document.getElementById("uv-index");
-        uviEl.textContent = uviMain;
+        uviEl.textContent = "UV index: " + uviMain;
       });
     }
   });
