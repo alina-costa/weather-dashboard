@@ -41,8 +41,6 @@ function fetchData(city) {
     .then((data) => this.displayWeather(data));
 }
 
-// come back for icon
-// array items
 function displayWeather(data) {
   var { name } = data;
   var { humidity, temp } = data.main;
@@ -50,18 +48,13 @@ function displayWeather(data) {
   var cityNameEl = document.getElementById("city-name");
   cityNameEl.textContent = "Weather in " + name;
   var cardTempEl = document.getElementById("temp");
-  cardTempEl.textContent = temp + " C";
+  cardTempEl.textContent = temp + " °C";
   var cardWindEl = document.getElementById("wind");
   cardWindEl.textContent = "Wind: " + speed + " km/h";
   var cardHumidEl = document.getElementById("humid");
   cardHumidEl.textContent = "Humidity: " + humidity + "%";
   var { lat, lon } = data.coord;
   futureForecast(lat, lon);
-  // {
-  //   var city = name;
-  // }
-  // searchHistoryArray.push(city);
-  save();
 }
 
 var futureForecast = function (lat, lon) {
@@ -76,7 +69,7 @@ var futureForecast = function (lat, lon) {
       response.json().then(function (data2) {
         var temp1 = data2.daily[0].temp.day;
         var temp1El = document.getElementById("temp1");
-        temp1El.textContent = temp1 + " C";
+        temp1El.textContent = temp1 + " °C";
 
         var wind1 = data2.daily[0].wind_speed;
         var wind1El = document.getElementById("wind1");
@@ -88,7 +81,7 @@ var futureForecast = function (lat, lon) {
         //
         var temp2 = data2.daily[1].temp.day;
         var temp2El = document.getElementById("temp2");
-        temp2El.textContent = temp2 + " C";
+        temp2El.textContent = temp2 + " °C";
 
         var wind2 = data2.daily[1].wind_speed;
         var wind2El = document.getElementById("wind2");
@@ -101,7 +94,7 @@ var futureForecast = function (lat, lon) {
         //
         var temp3 = data2.daily[2].temp.day;
         var temp3El = document.getElementById("temp3");
-        temp3El.textContent = temp3 + " C";
+        temp3El.textContent = temp3 + " °C";
 
         var wind3 = data2.daily[2].wind_speed;
         var wind3El = document.getElementById("wind3");
@@ -114,7 +107,7 @@ var futureForecast = function (lat, lon) {
         //
         var temp4 = data2.daily[3].temp.day;
         var temp4El = document.getElementById("temp4");
-        temp4El.textContent = temp4 + " C";
+        temp4El.textContent = temp4 + " °C";
 
         var wind4 = data2.daily[3].wind_speed;
         var wind4El = document.getElementById("wind4");
@@ -127,7 +120,7 @@ var futureForecast = function (lat, lon) {
         //
         var temp5 = data2.daily[4].temp.day;
         var temp5El = document.getElementById("temp5");
-        temp5El.textContent = temp5 + " C";
+        temp5El.textContent = temp5 + " °C";
 
         var wind5 = data2.daily[4].wind_speed;
         var wind5El = document.getElementById("wind5");
@@ -146,31 +139,4 @@ var futureForecast = function (lat, lon) {
   });
 };
 
-// const searchHistoryEl = function (city) {
-//   searchHistoryArray.push(inputValue.value);
-//   console.log(searchHistoryArray);
-// };
-
 searchButtonEl.addEventListener("click", weatherCard);
-// console.log(searchHistoryArray);
-
-// view history, click on a city, run the search like normal
-
-// for (var i = 0; i < searchHistoryArray.length; i++) {
-//   var testing = localStorage.getItem("data");
-//   console.log(testing);
-// }
-
-function save() {
-  var newData = inputValue.value;
-  if (localStorage.getItem("data") = null) {
-    localStorage.setItem("data", "[]");
-  }
-
-  var oldData = JSON.parse(localStorage.getItem("data"));
-  oldData.push(newData);
-
-  localStorage.setItem("data", JSON.stringify(oldData));
-};
-
-

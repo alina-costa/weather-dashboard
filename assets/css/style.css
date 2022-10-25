@@ -5,7 +5,7 @@
 header {
   text-align: center;
   position: fixed;
-  top: 6rem;
+  top: 5.5rem;
   color: white;
   text-decoration: overline;
   text-decoration-style: wavy;
@@ -28,22 +28,23 @@ form {
   width: 2.5em;
   outline: none;
 }
-/* 
-input {
-  border-radius: 8px;
-} */
 
-.search-bar {
+input {
   border: none;
   outline: none;
-  padding: 0.8em;
-  border-radius: 18px;
+  padding: 0.4em 1em;
+  border-radius: 24px;
   width: 50%;
+  height: 44px;
 }
 
-.btn {
-  background-color: white;
-  border-color: black;
+button {
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
 }
 
 button:hover {
@@ -72,11 +73,37 @@ body {
 #weather-card {
   width: 100%;
   max-width: 400px;
+  height: 250px;
   justify-content: center;
   align-items: center;
   margin: auto;
+  margin-top: 3em;
+  font-size: 20px;
+}
+
+#weather-card #city-name {
+  font-size: 25px;
+}
+
+#weather-card #temp {
+  font-size: 30px;
+  padding-bottom: 0.7em;
+  padding-top: 0.3em;
 }
 
 .card-body p {
+  line-height: 12px;
+}
+
+.future-cards {
+  width: 35%;
+  height: 160px;
+  font-size: 20px;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.future-cards p {
+  margin-top: 18px;
   line-height: 12px;
 }
