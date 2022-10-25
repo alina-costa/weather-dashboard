@@ -5,7 +5,14 @@
 header {
   text-align: center;
   position: fixed;
-  top: 2rem;
+  top: 6rem;
+  color: white;
+  text-decoration: overline;
+  text-decoration-style: wavy;
+}
+
+h1 {
+  font-size: 50px;
 }
 
 form {
@@ -13,7 +20,35 @@ form {
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 6rem;
+  top: 10rem;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 2.5em;
+  width: 2.5em;
+  outline: none;
+}
+/* 
+input {
+  border-radius: 8px;
+} */
+
+.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.8em;
+  border-radius: 18px;
+  width: 50%;
+}
+
+.btn {
+  background-color: white;
+  border-color: black;
+}
+
+button:hover {
+  background-color: dimgray;
+  cursor: pointer;
 }
 
 body {
@@ -24,11 +59,14 @@ body {
   margin: 0;
   font-family: "Open Sans";
   font-size: 18px;
+  color: white;
+  background-image: url("../images/IMG_5931.JPG");
 }
 
 .card {
   border-style: solid;
   border-radius: 22px;
+  background: #383838d0;
 }
 
 #weather-card {
