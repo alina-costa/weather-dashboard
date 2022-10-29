@@ -61,7 +61,8 @@ body {
   font-family: "Open Sans";
   font-size: 18px;
   color: white;
-  background-image: url("../images/IMG_5931.JPG");
+  background-image: url("../images/AdobeStock_242897921.jpeg");
+  background-size: cover;
 }
 
 .card {
