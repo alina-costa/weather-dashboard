@@ -7,3 +7,5 @@ Using an openweathermaps.org API, moment.js, and Javascript, this application al
 You can preview the application in the screenshot provided below, or you can visit the live website here:
 
 https://alina-costa.github.io/weather-dashboard/
+
+<img width="1666" alt="Screen Shot 2022-10-29 at 12 29 42 AM" src="https://user-images.githubusercontent.com/102388724/198813972-e2c91fc9-4a80-4e35-ba98-4f106d4f96a4.png">
